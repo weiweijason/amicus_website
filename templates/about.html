@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ company.name_zh }} | 公司介紹</title>
+    <meta
+      name="description"
+      content="{{ company.name_zh }} {{ company.name_en }} 公司介紹與中英文完整聯絡資訊。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Rajdhani:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+
+    <header class="sticky-top header-shell">
+      <nav class="navbar navbar-expand-lg py-3">
+        <div class="container">
+          <a class="navbar-brand brand-mark" href="{{ url_for('index') }}">
+            <span class="brand-chip">AM</span>
+            <span>
+              <strong>{{ company.name_zh }}</strong>
+              <small>{{ company.name_en }}</small>
+            </span>
+          </a>
+          <div class="ms-auto">
+            <a class="btn btn-primary rounded-pill px-4" href="{{ url_for('index') }}">回首頁</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="py-5">
+      <section class="container py-4">
+        <div class="row g-4">
+          <div class="col-lg-7 reveal-up">
+            <div class="solution-panel h-100">
+              <p class="eyebrow mb-2">COMPANY PROFILE</p>
+              <h1 class="mb-3">公司介紹</h1>
+              <p class="text-secondary mb-4">
+                {{ company.name_zh }}（{{ company.name_en }}）專注於風扇馬達與散熱解決方案，
+                提供標準化產品與客製化設計服務，支援工業、醫療、通訊與自動化設備的熱管理需求。
+              </p>
+              <p class="text-secondary mb-0">
+                我們重視可靠度、交期與技術協作，透過完整的研發與製造流程，協助客戶縮短導入時程並提升產品競爭力。
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-5 reveal-up delay-1">
+            <div class="timeline h-100">
+              <h2 class="h5 mb-4">完整中英文公司資訊</h2>
+              <div class="step"><span>A</span>{{ company.name_zh }}</div>
+              <div class="step"><span>B</span>{{ company.name_en }}</div>
+              <div class="step"><span>C</span>{{ company.address_zh }}</div>
+              <div class="step"><span>D</span>{{ company.address_en }}</div>
+              <div class="step"><span>E</span>電話 {{ company.phone }}</div>
+              <div class="step"><span>F</span>Email {{ company.email }}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container py-3 reveal-up delay-2">
+        <div class="product-card">
+          <h2 class="h4 mb-3">快速聯絡</h2>
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-primary rounded-pill px-4" href="tel:{{ company.tel_link }}">撥打電話</a>
+            <a class="btn btn-outline-light rounded-pill px-4" href="mailto:{{ company.email }}">寄送 Email</a>
+            <a class="btn btn-outline-light rounded-pill px-4" href="{{ company.map_link }}" target="_blank" rel="noopener">開啟 Google 地圖</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </body>
+</html>
