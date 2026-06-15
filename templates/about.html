@@ -8,6 +8,10 @@
       name="description"
       content="{{ company.name_zh }} {{ company.name_en }} 公司介紹與中英文完整聯絡資訊。"
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ company.name_zh }} | 公司介紹" />
+    <meta property="og:description" content="{{ company.name_zh }} {{ company.name_en }} 公司介紹與中英文完整聯絡資訊。" />
+    <meta property="og:locale" content="zh_TW" />
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='jpg/icon.png') }}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,8 +41,27 @@
               <small>{{ company.name_en }}</small>
             </span>
           </a>
-          <div class="ms-auto">
-            <a class="btn btn-primary rounded-pill px-4" href="{{ url_for('index') }}">回首頁</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNav"
+            aria-controls="mainNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ms-auto me-lg-4 gap-lg-2">
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}#products">產品系列</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}#solutions">應用場景</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}#capabilities">研發製造</a></li>
+              <li class="nav-item"><a class="nav-link active" href="{{ url_for('about') }}" aria-current="page">公司介紹</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}#contact">聯絡我們</a></li>
+            </ul>
+            <a href="{{ url_for('about_en') }}" class="lang-switch me-3">EN</a>
+            <a href="{{ url_for('index') }}#contact" class="btn btn-primary rounded-pill px-4">洽詢報價</a>
           </div>
         </div>
       </nav>
@@ -86,6 +109,28 @@
       </section>
     </main>
 
+    <footer class="footer py-4 mt-4">
+      <div class="container">
+        <div class="row align-items-center g-3">
+          <div class="col-lg-8">
+            <p class="mb-1 text-secondary">{{ company.name_zh }} | {{ company.name_en }}</p>
+            <p class="mb-1 text-secondary">{{ company.address_zh }}</p>
+            <p class="mb-0 text-secondary">電話 {{ company.phone }} ｜ Email {{ company.email }}</p>
+          </div>
+          <div class="col-lg-4 text-lg-end d-flex gap-2 justify-content-lg-end flex-wrap">
+            <a class="btn btn-outline-light rounded-pill px-4" href="mailto:{{ company.email }}">Email</a>
+            <a class="btn btn-primary rounded-pill px-4" href="tel:{{ company.tel_link }}">立即聯絡</a>
+          </div>
+        </div>
+        <p class="footer-copy text-center mb-0">
+          &copy; <span id="copy-year"></span> {{ company.name_zh }} {{ company.name_en }}. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <button class="back-to-top" aria-label="回到頂部">&#8679;</button>
+
+    <script>document.getElementById('copy-year').textContent = new Date().getFullYear();</script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"

@@ -3,11 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ company.name_zh }} {{ company.name_en }} | 風扇馬達與散熱解決方案</title>
+    <title>{{ company.name_zh }} {{ company.name_en }} | AC / DC 風扇製造商</title>
     <meta
       name="description"
-      content="{{ company.name_zh }} {{ company.name_en }} 提供 DC 風扇、EC 風機與散熱模組，協助工業、醫療與資料中心打造高效率熱管理系統。"
+      content="{{ company.name_zh }} 提供 AC 交流風扇、DC 直流無刷風扇，含防護網罩選配，專業 OEM/ODM 服務，適用工業、醫療、伺服器等場合。"
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ company.name_zh }} {{ company.name_en }} | AC / DC 風扇製造商" />
+    <meta property="og:description" content="{{ company.name_zh }} 提供 AC / DC 全系列風扇，支援防護網罩選配，協助各產業打造高效散熱方案。" />
+    <meta property="og:locale" content="zh_TW" />
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='jpg/icon.png') }}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,6 +31,7 @@
     <div class="bg-orb orb-1"></div>
     <div class="bg-orb orb-2"></div>
 
+    <!-- ===== NAVBAR ===== -->
     <header class="sticky-top header-shell">
       <nav class="navbar navbar-expand-lg py-3">
         <div class="container">
@@ -56,45 +61,58 @@
               <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">公司介紹</a></li>
               <li class="nav-item"><a class="nav-link" href="#contact">聯絡我們</a></li>
             </ul>
-            <a href="#contact" class="btn btn-primary rounded-pill px-4">索取型錄</a>
+            <a href="{{ url_for('index_en') }}" class="lang-switch me-3">EN</a>
+            <a href="#contact" class="btn btn-primary rounded-pill px-4">洽詢報價</a>
           </div>
         </div>
       </nav>
     </header>
 
     <main>
+
+      <!-- ===== HERO ===== -->
       <section class="hero-section">
         <div class="container py-5">
           <div class="row align-items-center g-5">
             <div class="col-lg-7 reveal-up">
               <p class="eyebrow mb-3">FAN MOTOR MANUFACTURER</p>
               <h1 class="display-4 fw-bold mb-3">
-                為高密度設備打造<br />
-                更穩定的氣流與散熱效率
+                AC / DC 全系列風扇<br />
+                專業製造・品質可靠
               </h1>
               <p class="lead text-secondary mb-4">
-                結合馬達驅動、葉輪設計與系統整合能力，我們提供從標準品到 OEM/ODM 的完整風扇散熱方案。
+                提供交流（AC）及直流（DC）無刷風扇，涵蓋長版、短版、大中小型等完整規格，
+                並提供防護網罩選配與 OEM / ODM 客製服務。
               </p>
               <div class="d-flex flex-wrap gap-3">
                 <a href="#products" class="btn btn-primary btn-lg rounded-pill px-4">瀏覽產品</a>
-                <a href="#capabilities" class="btn btn-outline-light btn-lg rounded-pill px-4">查看技術能力</a>
+                <a href="#contact" class="btn btn-outline-light btn-lg rounded-pill px-4">立即詢價</a>
               </div>
             </div>
             <div class="col-lg-5 reveal-up delay-1">
               <div class="hero-panel">
-                <h2 class="h5 mb-4">2026 年重點交付能力</h2>
-                <ul class="metric-list list-unstyled m-0">
+                <h2 class="h5 mb-4">產品線一覽</h2>
+                <ul class="list-unstyled m-0 product-summary-list">
                   <li>
-                    <strong class="counter" data-target="35">0</strong>
-                    <span>研發工程師</span>
+                    <span class="category-dot ac"></span>
+                    <div>
+                      <strong>AC 交流風扇</strong>
+                      <small>長版 / 短版 兩大系列</small>
+                    </div>
                   </li>
                   <li>
-                    <strong class="counter" data-target="1200">0</strong>
-                    <span>年量產型號</span>
+                    <span class="category-dot dc"></span>
+                    <div>
+                      <strong>DC 直流無刷風扇</strong>
+                      <small>大型 / 中型 / 小型 三種規格</small>
+                    </div>
                   </li>
                   <li>
-                    <strong class="counter" data-target="48">0</strong>
-                    <span>最快打樣時程 (hr)</span>
+                    <span class="category-dot acc"></span>
+                    <div>
+                      <strong>防護網罩選配</strong>
+                      <small>全系列相容 · 客製尺寸</small>
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -103,40 +121,132 @@
         </div>
       </section>
 
+      <!-- ===== PRODUCTS ===== -->
       <section id="products" class="py-5 section-soft">
         <div class="container py-4">
-          <div class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-4 reveal-up">
-            <div>
-              <p class="eyebrow mb-2">PRODUCT PORTFOLIO</p>
-              <h2 class="mb-0">產品系列</h2>
-            </div>
-            <p class="text-secondary m-0">涵蓋高風量、低噪音與高靜壓需求，支援多種產業規格。</p>
+
+          <!-- Section Header -->
+          <div class="text-center mb-5 reveal-up">
+            <p class="eyebrow mb-2">PRODUCT PORTFOLIO</p>
+            <h2 class="mb-2">完整產品系列</h2>
+            <p class="text-secondary">AC 交流 / DC 直流全系列風扇，全面支援防護網罩選配，歡迎洽詢 OEM / ODM 客製需求</p>
           </div>
-          <div class="row g-4">
-            {% for item in product_lines %}
-            <div class="col-md-6 col-xl-4 reveal-up delay-{{ loop.index }}">
-              <article class="product-card h-100">
-                <h3>{{ item.name }}</h3>
-                <p>{{ item.desc }}</p>
-                <div class="spec">{{ item.spec }}</div>
+
+          <!-- AC Category -->
+          <div class="product-category-header reveal-up">
+            <span class="category-badge ac">AC 交流風扇</span>
+            <p class="text-secondary mb-0">適用於需要 AC 電源供電的排氣、通風及工業應用場合</p>
+          </div>
+          <div class="row g-4 mb-5">
+            {% for p in products.ac %}
+            <div class="col-md-6 reveal-up delay-{{ loop.index }}">
+              <article class="product-img-card h-100">
+                <div class="product-img-wrap">
+                  <img
+                    src="{{ url_for('static', filename=p.image) }}"
+                    alt="{{ p.name }}"
+                    loading="lazy"
+                  />
+                  <span class="product-badge">{{ p.badge }}</span>
+                  <div class="product-img-overlay">
+                    <a href="#contact" class="btn btn-primary rounded-pill px-4">立即詢價</a>
+                  </div>
+                </div>
+                <div class="product-img-body">
+                  <small class="eyebrow d-block mb-1">{{ p.code }}</small>
+                  <h3 class="h5 mb-2">{{ p.name }}</h3>
+                  <p class="text-secondary small mb-3">{{ p.desc }}</p>
+                  <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                    <span class="spec-tag">{{ p.spec }}</span>
+                    <a href="#contact" class="btn-outline-accent">洽詢報價 →</a>
+                  </div>
+                </div>
               </article>
             </div>
             {% endfor %}
           </div>
+
+          <!-- DC Category -->
+          <div class="product-category-header reveal-up">
+            <span class="category-badge dc">DC 直流無刷風扇</span>
+            <p class="text-secondary mb-0">無刷馬達設計、支援 PWM 調速，適合電子設備精密散熱及節能應用</p>
+          </div>
+          <div class="row g-4 mb-5">
+            {% for p in products.dc %}
+            <div class="col-md-4 reveal-up delay-{{ loop.index }}">
+              <article class="product-img-card h-100">
+                <div class="product-img-wrap">
+                  <img
+                    src="{{ url_for('static', filename=p.image) }}"
+                    alt="{{ p.name }}"
+                    loading="lazy"
+                  />
+                  <span class="product-badge">{{ p.badge }}</span>
+                  <div class="product-img-overlay">
+                    <a href="#contact" class="btn btn-primary rounded-pill px-4">立即詢價</a>
+                  </div>
+                </div>
+                <div class="product-img-body">
+                  <small class="eyebrow d-block mb-1">{{ p.code }}</small>
+                  <h3 class="h5 mb-2">{{ p.name }}</h3>
+                  <p class="text-secondary small mb-3">{{ p.desc }}</p>
+                  <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                    <span class="spec-tag">{{ p.spec }}</span>
+                    <a href="#contact" class="btn-outline-accent">洽詢報價 →</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+            {% endfor %}
+          </div>
+
+          <!-- Accessory Banner -->
+          <div class="accessory-banner reveal-up">
+            <div class="row g-0 align-items-stretch">
+              <div class="col-md-5">
+                <div class="accessory-img-wrap">
+                  <img
+                    src="{{ url_for('static', filename=products.accessory.image) }}"
+                    alt="{{ products.accessory.name }}"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div class="col-md-7 d-flex align-items-center">
+                <div class="p-4 p-md-5 w-100">
+                  <p class="eyebrow mb-2">OPTIONAL ACCESSORY</p>
+                  <h3 class="mb-1">{{ products.accessory.name }}</h3>
+                  <small class="text-secondary d-block mb-3">{{ products.accessory.code }}</small>
+                  <p class="text-secondary mb-4">{{ products.accessory.desc }}</p>
+                  <div class="d-flex flex-wrap gap-3 align-items-center">
+                    <span class="spec-tag">全系列 AC / DC 相容</span>
+                    <a href="#contact" class="btn btn-primary rounded-pill px-4">客製洽詢</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
+      <!-- ===== APPLICATIONS ===== -->
       <section id="solutions" class="py-5">
         <div class="container py-4">
           <div class="row g-4 align-items-stretch">
             <div class="col-lg-6 reveal-up">
               <div class="solution-panel h-100">
                 <p class="eyebrow mb-2">APPLICATIONS</p>
-                <h2>應用場景</h2>
-                <p class="text-secondary mb-4">針對不同設備熱源與環境條件，快速提供導入建議與驗證流程。</p>
+                <h2>廣泛應用場景</h2>
+                <p class="text-secondary mb-4">
+                  針對不同設備熱源與環境條件，快速提供導入建議，協助客戶選配最適合的風扇規格。
+                </p>
                 <ul class="list-unstyled solution-list mb-0">
                   {% for app in applications %}
-                  <li>{{ app }}</li>
+                  <li>
+                    <span class="app-icon">{{ app.icon }}</span>
+                    {{ app.name }}
+                  </li>
                   {% endfor %}
                 </ul>
               </div>
@@ -144,90 +254,133 @@
             <div class="col-lg-6 reveal-up delay-2">
               <div class="timeline h-100">
                 <h3 class="h5 mb-4">專案導入節點</h3>
-                <div class="step"><span>01</span>需求盤點與 CFD 初步評估</div>
-                <div class="step"><span>02</span>樣品驗證與噪音優化</div>
-                <div class="step"><span>03</span>可靠度測試與量產導入</div>
-                <div class="step"><span>04</span>持續供貨與版本升級</div>
+                <div class="step"><span>01</span>需求盤點與初步規格確認</div>
+                <div class="step"><span>02</span>樣品製作與功能驗證</div>
+                <div class="step"><span>03</span>噪音、壽命與環境可靠度測試</div>
+                <div class="step"><span>04</span>量產導入與品質管控</div>
+                <div class="step"><span>05</span>持續供貨與版本升級支援</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- ===== CAPABILITIES ===== -->
       <section id="capabilities" class="py-5 section-soft">
         <div class="container py-4">
           <div class="text-center mb-5 reveal-up">
-            <p class="eyebrow mb-2">R&D + MANUFACTURING</p>
+            <p class="eyebrow mb-2">R&amp;D + MANUFACTURING</p>
             <h2>研發與製造能力</h2>
           </div>
           <div class="row g-4">
             <div class="col-md-4 reveal-up">
               <div class="capability-card">
+                <div class="capability-icon">⚡</div>
                 <h3>馬達核心設計</h3>
-                <p>磁路設計與驅動控制協同開發，提升效能並延長壽命。</p>
+                <p>磁路設計與驅動控制協同開發，AC / DC 全系列自主設計，提升效能並延長壽命。</p>
               </div>
             </div>
             <div class="col-md-4 reveal-up delay-1">
               <div class="capability-card">
+                <div class="capability-icon">🏭</div>
                 <h3>智慧製造產線</h3>
-                <p>自動化組裝與全檢流程，縮短交期並確保一致性品質。</p>
+                <p>自動化組裝與全檢流程，縮短交期並確保每批次一致性品質，支援大量客製訂單。</p>
               </div>
             </div>
             <div class="col-md-4 reveal-up delay-2">
               <div class="capability-card">
-                <h3>全球服務支援</h3>
-                <p>支援多區域客戶協作，快速回應驗證、認證與導入需求。</p>
+                <div class="capability-icon">🌐</div>
+                <h3>OEM / ODM 服務</h3>
+                <p>支援規格客製、外觀設計與認證協助，快速回應驗證與導入需求，服務全球客戶。</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="contact-form" class="py-5">
+      <!-- ===== CONTACT ===== -->
+      <section id="contact" class="py-5">
         <div class="container py-4">
+          <div class="text-center mb-5 reveal-up">
+            <p class="eyebrow mb-2">GET IN TOUCH</p>
+            <h2>聯絡我們</h2>
+            <p class="text-secondary">有任何產品規格或採購需求，歡迎留下資料，我們將盡快與您聯繫。</p>
+          </div>
           <div class="row g-4 align-items-stretch">
-            <div class="col-lg-6 reveal-up">
+            <div class="col-lg-7 reveal-up">
               <div class="solution-panel h-100">
-                <p class="eyebrow mb-2">CONTACT FORM</p>
-                <h2>聯絡我們</h2>
-                <p class="text-secondary mb-4">留下姓名、公司與需求，我們會盡快與您聯繫。</p>
-
                 {% if contact_status == 'ok' %}
-                <div class="alert alert-success" role="alert">
-                  已收到您的需求，我們將盡快與您聯繫。
+                <div class="alert alert-success mb-4" role="alert">
+                  ✅ 已收到您的需求，我們將盡快與您聯繫。感謝您的來信！
                 </div>
                 {% elif contact_status == 'error' %}
-                <div class="alert alert-danger" role="alert">
-                  請完整填寫姓名、公司與需求後再送出。
+                <div class="alert alert-danger mb-4" role="alert">
+                  ⚠️ 請完整填寫姓名、公司與需求後再送出。
                 </div>
                 {% endif %}
 
                 <form action="{{ url_for('contact_submit') }}" method="post" class="contact-form">
-                  <div class="mb-3">
-                    <label class="form-label" for="name">姓名</label>
-                    <input class="form-control" type="text" id="name" name="name" required />
+                  <div class="row g-3 mb-3">
+                    <div class="col-sm-6">
+                      <label class="form-label" for="name">姓名 <span class="text-danger">*</span></label>
+                      <input class="form-control" type="text" id="name" name="name" placeholder="您的姓名" required />
+                    </div>
+                    <div class="col-sm-6">
+                      <label class="form-label" for="company_name">公司名稱 <span class="text-danger">*</span></label>
+                      <input class="form-control" type="text" id="company_name" name="company_name" placeholder="貴公司名稱" required />
+                    </div>
                   </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="company_name">公司</label>
-                    <input class="form-control" type="text" id="company_name" name="company_name" required />
+                  <div class="mb-4">
+                    <label class="form-label" for="requirement">需求說明 <span class="text-danger">*</span></label>
+                    <textarea
+                      class="form-control"
+                      id="requirement"
+                      name="requirement"
+                      rows="5"
+                      placeholder="請描述您的需求，例如：所需型號、數量、應用場合或客製規格等..."
+                      required
+                    ></textarea>
                   </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="requirement">需求</label>
-                    <textarea class="form-control" id="requirement" name="requirement" rows="4" required></textarea>
-                  </div>
-                  <button class="btn btn-primary rounded-pill px-4" type="submit">送出需求</button>
+                  <button class="btn btn-primary rounded-pill px-5 py-2" type="submit">送出需求</button>
                 </form>
               </div>
             </div>
-            <div class="col-lg-6 reveal-up delay-1">
-              <div class="timeline h-100">
+            <div class="col-lg-5 reveal-up delay-1">
+              <div class="contact-info-panel h-100">
                 <h3 class="h5 mb-4">聯絡資訊</h3>
-                <div class="step"><span>01</span>{{ company.name_zh }}</div>
-                <div class="step"><span>02</span>{{ company.name_en }}</div>
-                <div class="step"><span>03</span>{{ company.address_zh }}</div>
-                <div class="step"><span>04</span>{{ company.address_en }}</div>
-                <div class="step"><span>05</span>電話 {{ company.phone }}</div>
-                <div class="step"><span>06</span>Email {{ company.email }}</div>
+                <ul class="list-unstyled contact-info-list m-0">
+                  <li>
+                    <span class="contact-icon">🏢</span>
+                    <div>
+                      <strong>{{ company.name_zh }}</strong>
+                      <small>{{ company.name_en }}</small>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="contact-icon">📍</span>
+                    <div>
+                      <span>{{ company.address_zh }}</span>
+                      <small>{{ company.address_en }}</small>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="contact-icon">📞</span>
+                    <div>
+                      <a href="tel:{{ company.tel_link }}" class="contact-link">{{ company.phone }}</a>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="contact-icon">✉️</span>
+                    <div>
+                      <a href="mailto:{{ company.email }}" class="contact-link">{{ company.email }}</a>
+                    </div>
+                  </li>
+                </ul>
+                <div class="mt-4 d-flex flex-column gap-2">
+                  <a class="btn btn-primary rounded-pill" href="tel:{{ company.tel_link }}">📞 立即來電</a>
+                  <a class="btn btn-outline-light rounded-pill" href="mailto:{{ company.email }}">✉️ 發送 Email</a>
+                  <a class="btn btn-outline-light rounded-pill" href="{{ company.map_link }}" target="_blank" rel="noopener">📍 Google 地圖導航</a>
+                </div>
               </div>
             </div>
           </div>
@@ -235,16 +388,24 @@
       </section>
     </main>
 
-    <footer id="contact" class="footer py-5">
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer py-5">
       <div class="container">
         <div class="row g-4 align-items-center">
           <div class="col-lg-7">
-            <h2 class="h3 mb-2">與我們討論您的散熱專案</h2>
-            <p class="mb-1 text-secondary">{{ company.name_zh }} | {{ company.name_en }}</p>
-            <p class="mb-1 text-secondary">{{ company.address_zh }}</p>
-            <p class="mb-1 text-secondary">{{ company.address_en }}</p>
-            <p class="mb-1 text-secondary">電話 {{ company.phone }}</p>
-            <p class="mb-0 text-secondary">Email {{ company.email }}</p>
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <img class="brand-logo" src="{{ url_for('static', filename='jpg/icon.png') }}" alt="{{ company.name_zh }} logo" />
+              <div>
+                <strong class="d-block">{{ company.name_zh }}</strong>
+                <small class="text-secondary">{{ company.name_en }}</small>
+              </div>
+            </div>
+            <p class="mb-1 text-secondary small">{{ company.address_zh }}</p>
+            <p class="mb-1 text-secondary small">{{ company.address_en }}</p>
+            <p class="mb-1 text-secondary small">電話 {{ company.phone }}</p>
+            <p class="mb-0 text-secondary small">Email
+              <a href="mailto:{{ company.email }}" class="contact-link">{{ company.email }}</a>
+            </p>
           </div>
           <div class="col-lg-5 text-lg-end d-flex gap-2 justify-content-lg-end flex-wrap">
             <a class="btn btn-outline-light rounded-pill px-4" href="mailto:{{ company.email }}">Email</a>
@@ -252,9 +413,15 @@
             <a class="btn btn-primary rounded-pill px-4" href="tel:{{ company.tel_link }}">立即聯絡</a>
           </div>
         </div>
+        <p class="footer-copy text-center mb-0">
+          &copy; <span id="copy-year"></span> {{ company.name_zh }} {{ company.name_en }}. All rights reserved.
+        </p>
       </div>
     </footer>
 
+    <button class="back-to-top" aria-label="回到頂部">&#8679;</button>
+
+    <script>document.getElementById('copy-year').textContent = new Date().getFullYear();</script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
